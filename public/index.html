@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Yesterday Studio — Your Business Credibility Package</title>
-<meta name="description" content="Company profiles, websites, capability statements, and branded business essentials for Nigerian professionals who mean business. Delivered in days, not months." />
+<title>The Business Readiness Package — Yesterday Studio</title>
+<meta name="description" content="Everything your business needs before the next opportunity arrives — company profile, website, capability statement, and more. Built by Yesterday Studio." />
 
 <!-- Open Graph / WhatsApp / Facebook link preview -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Yesterday Studio" />
-<meta property="og:title" content="Yesterday Studio — Your Business Credibility Package" />
-<meta property="og:description" content="Company profiles, websites, capability statements, and branded business essentials for Nigerian professionals who mean business." />
+<meta property="og:title" content="The Business Readiness Package — Yesterday Studio" />
+<meta property="og:description" content="Everything your business needs before the next opportunity arrives. Company profile, website, capability statement, tender kit, and more — delivered as one package." />
 <meta property="og:image" content="https://yesterday-studio.vercel.app/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://yesterday-studio.vercel.app/" />
+<meta property="og:url" content="https://yesterday-studio.vercel.app/business-readiness-package" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Yesterday Studio — Your Business Credibility Package" />
-<meta name="twitter:description" content="Company profiles, websites, capability statements, and branded business essentials for Nigerian professionals who mean business." />
+<meta name="twitter:title" content="The Business Readiness Package — Yesterday Studio" />
+<meta name="twitter:description" content="Everything your business needs before the next opportunity arrives." />
 <meta name="twitter:image" content="https://yesterday-studio.vercel.app/assets/og-image.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -68,10 +68,6 @@
     from { opacity: 0; }
     to   { opacity: 1; }
   }
-  @keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-40px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
   @keyframes pulseGlow {
     0%, 100% { box-shadow: 0 4px 20px var(--wa-glow); }
     50%      { box-shadow: 0 4px 28px 6px var(--wa-glow); }
@@ -106,8 +102,8 @@
 
   @media (prefers-reduced-motion: reduce) {
     .reveal, .reveal-stagger > *,
-    .hero .label, .hero h1, .hero .body-lg, .hero .audience-row, .hero .hero-cta-row,
-    .hero .trust-strip, .hero .hero-badges, .trust-name {
+    .hero .label, .hero h1, .hero .hero-scenarios, .hero .hero-ready,
+    .hero .hero-cta-row, .hero .hero-badges {
       opacity: 1 !important;
       transform: none !important;
       transition: none !important;
@@ -133,13 +129,23 @@
     max-width: 960px; margin: 0 auto; padding: 0 24px;
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
   }
+  .nav-left { display: flex; align-items: center; }
   .nav-logo {
     font-family: var(--serif);
     font-size: 19px;
     color: var(--text);
     letter-spacing: 0.01em;
+    text-decoration: none;
   }
   .nav-logo span { font-style: italic; color: var(--wa); }
+  .nav-subtitle {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid var(--border);
+    letter-spacing: 0.02em;
+  }
   .nav-cta {
     display: inline-flex; align-items: center; gap: 7px;
     font-size: 13px;
@@ -154,18 +160,6 @@
   }
   .nav-cta:hover { background: var(--wa-pale); }
   .nav-cta svg { width: 15px; height: 15px; fill: var(--wa); flex-shrink: 0; }
-
-  /* Announcement bar */
-  .bar {
-    background: var(--text);
-    text-align: center;
-    padding: 10px 24px;
-    font-size: 12px;
-    color: var(--bg);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  .bar .dot { margin: 0 10px; opacity: 0.4; }
 
   /* Section labels */
   .label {
@@ -184,8 +178,8 @@
   /* Typography */
   .display {
     font-family: var(--serif);
-    font-size: clamp(36px, 6vw, 64px);
-    line-height: 1.1;
+    font-size: clamp(34px, 6vw, 60px);
+    line-height: 1.15;
     font-weight: 400;
     color: var(--text);
     letter-spacing: -0.01em;
@@ -249,7 +243,7 @@
   section + section { border-top: 1px solid var(--border); }
 
   /* Hero */
-  .hero { padding: 88px 0 72px; border-bottom: 1px solid var(--border); overflow: hidden; position: relative; }
+  .hero { padding: 96px 0 80px; border-bottom: 1px solid var(--border); overflow: hidden; position: relative; }
   .hero::before {
     content: '';
     position: absolute; top: -120px; right: -160px;
@@ -261,58 +255,63 @@
   }
   .hero .label,
   .hero h1,
-  .hero .body-lg,
-  .hero .audience-row,
+  .hero .hero-scenarios,
+  .hero .hero-ready,
   .hero .hero-cta-row {
     opacity: 0;
     transform: translateY(18px);
     transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
   }
-  .hero.is-visible .label             { opacity: 1; transform: none; transition-delay: 0.05s; }
-  .hero.is-visible h1                 { opacity: 1; transform: none; transition-delay: 0.15s; }
-  .hero.is-visible .body-lg           { opacity: 1; transform: none; transition-delay: 0.28s; }
-  .hero.is-visible .audience-row      { opacity: 1; transform: none; transition-delay: 0.40s; }
-  .hero.is-visible .hero-cta-row      { opacity: 1; transform: none; transition-delay: 0.50s; }
-  .hero.is-visible .trust-strip       { animation: fadeUp 0.7s var(--ease) 0.62s both; }
-  .hero.is-visible .hero-badges       { animation: fadeUp 0.7s var(--ease) 0.58s both; }
-  .trust-name { opacity: 0; transform: translateX(-24px); }
-  .hero.is-visible .trust-name { animation: slideInLeft 0.6s var(--ease) both; }
-  .hero.is-visible .trust-name:nth-child(1) { animation-delay: 0.66s; }
-  .hero.is-visible .trust-name:nth-child(2) { animation-delay: 0.74s; }
-  .hero.is-visible .trust-name:nth-child(3) { animation-delay: 0.82s; }
-  .hero.is-visible .trust-name:nth-child(4) { animation-delay: 0.90s; }
-  .hero.is-visible .trust-name:nth-child(5) { animation-delay: 0.98s; }
+  .hero.is-visible .label           { opacity: 1; transform: none; transition-delay: 0.05s; }
+  .hero.is-visible h1               { opacity: 1; transform: none; transition-delay: 0.15s; }
+  .hero.is-visible .hero-scenarios  { opacity: 1; transform: none; transition-delay: 0.28s; }
+  .hero.is-visible .hero-ready      { opacity: 1; transform: none; transition-delay: 0.38s; }
+  .hero.is-visible .hero-cta-row    { opacity: 1; transform: none; transition-delay: 0.48s; }
+  .hero.is-visible .hero-badges     { animation: fadeUp 0.7s var(--ease) 0.6s both; }
 
-  .hero-badges { display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+  .hero-scenarios { margin-top: 26px; max-width: 560px; }
+  .hero-scenarios p {
+    font-size: 17px; line-height: 1.7; color: var(--text-muted);
+    padding-left: 18px; position: relative; margin-bottom: 11px;
+  }
+  .hero-scenarios p::before {
+    content: ''; position: absolute; left: 0; top: 9px;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--wa);
+  }
+  .hero-ready {
+    font-family: var(--serif); font-style: italic; font-size: 21px;
+    color: var(--text); margin-top: 24px;
+  }
+
+  .hero-cta-row { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 36px; align-items: center; }
+
+  .hero-badges { display: flex; gap: 20px; margin-top: 28px; flex-wrap: wrap; }
   .badge { font-size: 12px; color: var(--text-dim); letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 6px; }
   .badge::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--wa); }
 
-  /* Audience pills */
-  .audience-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 32px; }
-  .audience-pill {
-    font-size: 12px;
-    color: var(--text-muted);
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 5px 14px;
-    letter-spacing: 0.03em;
-    display: inline-block;
-    transition: border-color 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease);
+  /* Story section */
+  .story-lede {
+    font-family: var(--serif); font-size: 23px; line-height: 1.5;
+    color: var(--text); margin-bottom: 30px; max-width: 600px;
   }
-  .audience-pill:hover {
-    border-color: var(--wa);
-    color: var(--wa-dark);
-    transform: translateY(-2px);
+  .story-line {
+    font-size: 16px; line-height: 1.85; color: var(--text-muted);
+    margin-bottom: 18px; max-width: 600px;
+  }
+  .story-quote {
+    font-family: var(--serif); font-style: italic; font-size: 23px;
+    color: var(--text); margin: 32px 0; padding-left: 22px;
+    border-left: 2px solid var(--wa); max-width: 520px;
+  }
+  .story-quote.muted {
+    font-size: 18px; color: var(--text-muted); border-left-color: var(--border-strong);
+  }
+  .story-sign {
+    font-family: var(--serif); font-style: italic; font-size: 15px;
+    color: var(--text-dim); text-align: right; margin-top: 36px; max-width: 600px;
   }
 
-  /* Trust strip */
-  .trust-strip { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
-  .trust-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
-  .trust-names { display: flex; gap: 28px; flex-wrap: wrap; }
-  .trust-name { font-size: 13px; color: var(--text-dim); letter-spacing: 0.03em; }
-
-  /* Grid blocks */
+  /* Grid blocks (offer / deliverables) */
   .grid-2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -346,27 +345,65 @@
   .grid-num { font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; margin-bottom: 14px; display: block; transition: color 0.25s; }
   .grid-item:hover .grid-num { color: var(--wa); }
 
-  /* Problem / Who it's for cards */
-  .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 40px; }
-  .problem-card {
+  /* Before / After comparison */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .compare-card {
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    padding: 32px;
+  }
+  .compare-card.after {
+    border-color: var(--wa);
+    background: var(--bg2);
+    box-shadow: 0 0 0 1px var(--wa);
+  }
+  .compare-label {
+    font-family: var(--serif); font-size: 20px; color: var(--text); margin-bottom: 22px;
+  }
+  .compare-card.after .compare-label { color: var(--wa-dark); }
+  .compare-list { list-style: none; }
+  .compare-list li {
+    font-size: 14px; color: var(--text-muted); padding: 11px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .compare-list li:last-child { border-bottom: none; }
+  .compare-list li::before {
+    content: '–'; color: var(--text-dim); flex-shrink: 0; font-weight: 500;
+  }
+  .compare-card.after .compare-list li::before {
+    content: '✓'; color: var(--wa); font-weight: 600;
+  }
+
+  /* Audience pills (who this is for) */
+  .audience-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 32px; }
+  .audience-pill {
+    font-size: 13px;
+    color: var(--text-muted);
     background: var(--bg2);
     border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 28px;
-    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+    border-radius: 20px;
+    padding: 8px 16px;
+    letter-spacing: 0.02em;
+    display: inline-block;
+    transition: border-color 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease);
   }
-  .problem-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px -10px rgba(26,25,22,0.14);
+  .audience-pill:hover {
     border-color: var(--wa);
+    color: var(--wa-dark);
+    transform: translateY(-2px);
   }
-  .problem-num  { font-family: var(--serif); font-size: 36px; color: var(--text-dim); line-height: 1; margin-bottom: 14px; transition: color 0.25s; }
-  .problem-card:hover .problem-num { color: var(--wa); }
 
   /* Cost row */
   .cost-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
@@ -391,42 +428,129 @@
   .cost-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
   .cost-desc  { font-size: 13px; color: var(--text-muted); }
 
-  /* Services */
-  .services-grid {
+  /* Portfolio mockups */
+  .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
     margin-top: 40px;
   }
-  .service-item { background: var(--bg); padding: 28px; transition: background 0.2s; }
-  .service-item:hover { background: var(--bg2); }
+  .portfolio-item {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 26px 18px 20px;
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+  }
+  .portfolio-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px -12px rgba(26,25,22,0.16);
+    border-color: var(--wa);
+  }
+  .portfolio-mockup {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .portfolio-caption { font-size: 13px; color: var(--text-muted); letter-spacing: 0.02em; }
+  .portfolio-note { font-size: 13px; color: var(--text-dim); margin-top: 18px; }
 
-  /* Process */
-  .process-list { margin-top: 40px; }
-  .process-item {
-    display: grid; grid-template-columns: 64px 1fr; gap: 24px;
-    padding: 28px 0; border-bottom: 1px solid var(--border);
-    position: relative;
-    transition: padding-left 0.25s var(--ease);
+  /* Mockup — Company Profile (document cover) */
+  .mp-page {
+    width: 68%; height: 90%;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 3px;
+    box-shadow: 0 8px 18px -10px rgba(26,25,22,0.18);
+    padding: 16% 11%;
+    display: flex; flex-direction: column;
   }
-  .process-item:first-child { border-top: 1px solid var(--border); }
-  .process-item::before {
-    content: '';
-    position: absolute; left: -16px; top: 50%;
-    width: 0; height: 0;
-    border-radius: 50%;
-    background: var(--wa);
-    transform: translateY(-50%);
-    transition: width 0.25s var(--ease), height 0.25s var(--ease);
+  .mp-mark { width: 16px; height: 16px; border: 1.4px solid var(--text); border-radius: 50%; margin-bottom: 12px; }
+  .mp-title { width: 72%; height: 7px; background: var(--text); border-radius: 2px; margin-bottom: 6px; }
+  .mp-rule { width: 26px; height: 2px; background: var(--wa); margin-bottom: 12px; }
+  .mp-lines span { display: block; height: 3.5px; background: var(--border-strong); border-radius: 2px; margin-bottom: 6px; }
+  .mp-lines span:nth-child(1) { width: 92%; }
+  .mp-lines span:nth-child(2) { width: 76%; }
+  .mp-lines span:nth-child(3) { width: 58%; }
+
+  /* Mockup — Website (browser frame) */
+  .mw-window {
+    width: 86%; height: 84%;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+    box-shadow: 0 8px 18px -10px rgba(26,25,22,0.18);
+    overflow: hidden; display: flex; flex-direction: column;
   }
-  .process-item:hover { padding-left: 8px; }
-  .process-item:hover::before { width: 6px; height: 6px; }
-  .process-week { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); padding-top: 2px; transition: color 0.25s; }
-  .process-item:hover .process-week { color: var(--wa); }
+  .mw-bar { height: 18%; background: var(--bg2); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 4px; padding: 0 10px; flex-shrink: 0; }
+  .mw-bar span { width: 5px; height: 5px; border-radius: 50%; background: var(--border-strong); }
+  .mw-body { flex: 1; padding: 12% 12%; display: flex; flex-direction: column; }
+  .mw-nav { width: 36%; height: 4px; background: var(--border-strong); border-radius: 2px; margin-bottom: 22%; }
+  .mw-headline { width: 78%; height: 7px; background: var(--text); border-radius: 2px; margin-bottom: 6px; }
+  .mw-sub { width: 56%; height: 4px; background: var(--text-dim); border-radius: 2px; margin-bottom: 12px; }
+  .mw-btn { width: 32%; height: 12px; background: var(--wa); border-radius: 3px; }
+
+  /* Mockup — Brand Identity (swatch board) */
+  .mb-card {
+    width: 76%; height: 88%;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+    box-shadow: 0 8px 18px -10px rgba(26,25,22,0.18);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  }
+  .mb-mono { font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--text); line-height: 1; }
+  .mb-swatches { display: flex; gap: 6px; }
+  .mb-swatches span { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--border); }
+  .mb-swatches .s1 { background: var(--text); }
+  .mb-swatches .s2 { background: var(--wa); }
+  .mb-swatches .s3 { background: var(--bg3); }
+  .mb-swatches .s4 { background: var(--accent-pale); }
+  .mb-type { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+
+  /* Mockup — Printed Materials (sheet stack) */
+  .pr-stack { position: relative; width: 64%; height: 88%; }
+  .pr-sheet {
+    position: absolute; inset: 0;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 3px;
+    box-shadow: 0 8px 18px -10px rgba(26,25,22,0.18);
+  }
+  .pr-sheet.back { transform: translate(7px, 7px); background: var(--bg3); box-shadow: none; }
+  .pr-sheet.front { z-index: 1; padding: 15% 12%; display: flex; flex-direction: column; }
+  .pr-head { width: 38%; height: 5px; background: var(--wa); border-radius: 2px; margin-bottom: 10px; }
+  .pr-lines span { display: block; height: 3px; background: var(--border-strong); border-radius: 2px; margin-bottom: 6px; }
+  .pr-lines span:nth-child(1) { width: 86%; }
+  .pr-lines span:nth-child(2) { width: 70%; }
+  .pr-lines span:nth-child(3) { width: 78%; }
+  .pr-lines span:nth-child(4) { width: 52%; }
+
+  /* Mockup — Business Cards (NFC card) */
+  .bc-card {
+    width: 80%; height: 64%;
+    background: var(--text); border-radius: 8px;
+    box-shadow: 0 10px 22px -10px rgba(26,25,22,0.38);
+    padding: 13% 11%;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .bc-row { display: flex; justify-content: space-between; align-items: flex-start; }
+  .bc-name { width: 48%; height: 5px; background: rgba(255,255,255,0.92); border-radius: 2px; }
+  .bc-nfc { width: 16px; height: 16px; stroke: var(--wa); fill: none; stroke-width: 1.6; }
+  .bc-title { width: 30%; height: 3.5px; background: rgba(255,255,255,0.42); border-radius: 2px; }
+
+  /* Mockup — Presentation Decks (slide) */
+  .pd-slide {
+    width: 88%; height: 80%;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 5px;
+    box-shadow: 0 8px 18px -10px rgba(26,25,22,0.18);
+    padding: 11% 11%;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .pd-title { width: 54%; height: 6px; background: var(--text); border-radius: 2px; }
+  .pd-bullets { display: flex; flex-direction: column; gap: 6px; }
+  .pd-bullets span { display: block; height: 3.5px; border-radius: 2px; background: var(--border-strong); }
+  .pd-bullets span:nth-child(1) { width: 82%; }
+  .pd-bullets span:nth-child(2) { width: 64%; }
+  .pd-bullets span:nth-child(3) { width: 70%; }
+  .pd-chart { display: flex; gap: 4px; align-items: flex-end; align-self: flex-end; height: 22px; }
+  .pd-chart span { width: 6px; border-radius: 1px; background: var(--wa); display: block; }
+  .pd-chart span:nth-child(1) { height: 40%; }
+  .pd-chart span:nth-child(2) { height: 70%; }
+  .pd-chart span:nth-child(3) { height: 100%; }
 
   /* Packages */
   .packages { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 40px; }
@@ -497,20 +621,6 @@
   .pkg-cta-filled  { background: var(--wa); color: #fff; border: 1px solid var(--wa); }
   .pkg-cta-filled:hover  { background: var(--wa-dark); border-color: var(--wa-dark); transform: translateY(-1px); }
 
-  /* Testimonials */
-  .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 40px; }
-  .testimonial {
-    background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 28px;
-    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
-  }
-  .testimonial:hover { transform: translateY(-4px); box-shadow: 0 14px 30px -12px rgba(26,25,22,0.14); }
-  .testimonial-quote { font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--text); margin-bottom: 20px; }
-  .testimonial-quote::before { content: '\201C'; color: var(--wa); }
-  .testimonial-author { font-size: 13px; font-weight: 500; color: var(--text-muted); }
-  .testimonial-role   { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
-  .rating { font-size: 12px; color: var(--text-dim); margin-bottom: 32px; display: block; letter-spacing: 0.04em; }
-  .rating .stars { color: var(--wa); letter-spacing: 0.06em; }
-
   /* FAQ */
   .faq { margin-top: 40px; }
   .faq-q {
@@ -527,13 +637,13 @@
   details[open] { border-color: var(--wa); }
   details[open] .chevron { transform: rotate(45deg); color: var(--wa); }
   .faq-a {
-    font-size: 14px; color: var(--text-muted); line-height: 1.7; padding-bottom: 20px;
+    font-size: 14px; color: var(--text-muted); line-height: 1.7; padding-bottom: 20px; max-width: 600px;
     animation: fadeIn 0.35s var(--ease);
   }
 
   /* CTA section */
   .cta-section { padding: 100px 0; text-align: center; }
-  .cta-section .body-lg { max-width: 500px; margin: 0 auto 36px; }
+  .cta-section .body-lg { max-width: 460px; margin: 0 auto 36px; }
   .cta-group { display: flex; gap: 14px; align-items: center; justify-content: center; flex-wrap: wrap; }
 
   /* WhatsApp float */
@@ -562,9 +672,10 @@
 
   @media (max-width: 600px) {
     section { padding: 56px 0; }
-    .hero { padding: 56px 0 48px; }
-    .process-item { grid-template-columns: 1fr; gap: 6px; }
+    .hero { padding: 64px 0 52px; }
     .cta-section { padding: 64px 0; }
+    .nav-subtitle { display: none; }
+    .compare-card { padding: 24px; }
   }
 </style>
 </head>
@@ -575,17 +686,13 @@
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.554 4.099 1.523 5.822L.057 23.743a.5.5 0 0 0 .612.612l5.921-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 0 1-5.006-1.37l-.359-.214-3.717.921.937-3.618-.234-.372A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
 </a>
 
-<!-- Bar -->
-<div class="bar">
-  Now accepting new clients — limited spots this month
-  <span class="dot">·</span>
-  Chat us on WhatsApp to get started
-</div>
-
 <!-- Nav -->
 <nav>
   <div class="inner">
-    <div class="nav-logo">Yesterday <span>Studio</span></div>
+    <div class="nav-left">
+      <a href="https://yesterday-studio.vercel.app/" class="nav-logo">Yesterday <span>Studio</span></a>
+      <span class="nav-subtitle">Business Readiness Package</span>
+    </div>
     <a href="https://wa.me/9024545849" target="_blank" class="nav-cta">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.554 4.099 1.523 5.822L.057 23.743a.5.5 0 0 0 .612.612l5.921-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 0 1-5.006-1.37l-.359-.214-3.717.921.937-3.618-.234-.372A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
       Chat on WhatsApp
@@ -596,239 +703,281 @@
 <!-- ── Hero ── -->
 <div class="hero">
   <div class="container">
-    <div class="label">Your credibility package</div>
+    <div class="label">The Business Readiness Package</div>
     <h1 class="display">
-      Opportunities don't give notice.<br>
-      <em>Are you ready when they call?</em>
+      You're One Phone Call Away<br>
+      From <em>Losing Your Next Opportunity.</em>
     </h1>
-    <p class="body-lg" style="margin-top:24px; max-width:580px;">
-      Every serious professional — contractor, consultant, doctor, lawyer, real estate agent — needs a credibility package that works before you even pick up the phone.
-    </p>
 
-    <div class="audience-row">
-      <span class="audience-pill">Contractors</span>
-      <span class="audience-pill">Consultants</span>
-      <span class="audience-pill">Lawyers</span>
-      <span class="audience-pill">Medical Professionals</span>
-      <span class="audience-pill">Real Estate</span>
-      <span class="audience-pill">Engineers</span>
-      <span class="audience-pill">Architects</span>
-      <span class="audience-pill">Financial Advisors</span>
-      <span class="audience-pill">Entrepreneurs</span>
+    <div class="hero-scenarios">
+      <p>A client asks for your company profile.</p>
+      <p>A procurement officer wants your capability statement.</p>
+      <p>Someone Googles your company before awarding the contract.</p>
     </div>
+    <p class="hero-ready">Are you ready?</p>
 
-    <div class="hero-cta-row" style="display:flex; gap:14px; flex-wrap:wrap; margin-top:36px; align-items:center;">
-      <a href="tel:+2349024545849" class="btn-primary">Book a call</a>
-      <a href="https://wa.me/9024545849" target="_blank" class="btn-wa">
+    <div class="hero-cta-row">
+      <a href="https://wa.me/9024545849?text=Hi%2C%20I%27d%20like%20to%20get%20my%20business%20ready." target="_blank" class="btn-wa">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.554 4.099 1.523 5.822L.057 23.743a.5.5 0 0 0 .612.612l5.921-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 0 1-5.006-1.37l-.359-.214-3.717.921.937-3.618-.234-.372A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-        Chat on WhatsApp
+        Get My Business Ready
       </a>
     </div>
 
-    <div class="hero-badges" style="margin-top:24px;">
+    <div class="hero-badges">
       <span class="badge">Response within 1 hour</span>
       <span class="badge">No pressure, no pitch</span>
-      <span class="badge">Built for Nigerian professionals</span>
-    </div>
-
-    <div class="trust-strip">
-      <div class="trust-label">Trusted by professionals across Nigeria, Ghana, Kenya &amp; UK</div>
-      <div class="trust-names">
-        <span class="trust-name">Legal Practices</span>
-        <span class="trust-name">Construction Firms</span>
-        <span class="trust-name">Medical Clinics</span>
-        <span class="trust-name">Real Estate Agencies</span>
-        <span class="trust-name">Consulting Firms</span>
-      </div>
+      <span class="badge">Built for Nigerian businesses</span>
     </div>
   </div>
 </div>
 
-<!-- ── What's included ── -->
-<section id="discover">
+<main>
+
+<!-- ── Story ── -->
+<section id="story">
   <div class="container reveal">
-    <div class="label">01 — Inside the package</div>
-    <h2 class="h2">Everything your business needs <em>before the next opportunity.</em></h2>
+    <div class="label">01 — Why this exists</div>
+    <h2 class="h2">It started with <em>one phone call.</em></h2>
+    <p class="story-lede" style="margin-top:28px;">A construction company owner submitted his BOQ for a project. Pricing done. Documents in order. Ready, as far as he knew.</p>
+    <p class="story-line">A few days later, his phone rang.</p>
+    <p class="story-quote">"Please send your latest company profile."</p>
+    <p class="story-quote muted">He didn't have one.</p>
+    <p class="story-line">I was with him when that call came in. We put together a professional company profile within hours, so he could still submit in time.</p>
+    <p class="story-line">He was lucky. Most businesses aren't.</p>
+    <p class="story-line">That phone call is the moment this package was built for — the moment opportunity arrives and quietly asks if you're ready. Not next week. Right now.</p>
+    <p class="story-line" style="margin-top:24px;">Every serious business should already have everything in place before that call comes. Not scrambling. Not improvising. Ready.</p>
+    <p class="story-sign">— Yesterday Studio</p>
+  </div>
+</section>
+
+<!-- ── The Offer ── -->
+<section id="offer">
+  <div class="container reveal">
+    <div class="label">02 — The offer</div>
+    <h2 class="h2">The Business Readiness Package</h2>
+    <p class="body-lg" style="margin-top:16px; max-width:560px;">Everything your business needs before the next opportunity arrives.</p>
     <div class="grid-2 reveal-stagger">
       <div class="grid-item">
         <span class="grid-num">01</span>
         <div class="h3">Professional Company Profile</div>
-        <p class="body">A polished PDF that presents your business, services, key projects, team, and credentials — ready to send the moment anyone asks.</p>
+        <p class="body">The document that answers "who are you" before anyone has to ask. Send it the moment a client, bank, or procurement officer requests it — not three days later.</p>
       </div>
       <div class="grid-item">
         <span class="grid-num">02</span>
-        <div class="h3">Modern Business Website</div>
-        <p class="body">A fast, mobile-first site that builds trust instantly. Showcases your work, displays your services, and converts visitors into clients.</p>
+        <div class="h3">Modern Website</div>
+        <p class="body">The place clients land when they Google you before signing anything. It tells them you're established — even if you only started last year.</p>
       </div>
       <div class="grid-item">
         <span class="grid-num">03</span>
         <div class="h3">Capability Statement</div>
-        <p class="body">A focused 1–2 page document for tenders, pitches, and corporate clients. Says who you are, what you do, and why you're the right choice — fast.</p>
+        <p class="body">The one-page proof that you can deliver — built for tenders and corporate decision-makers who skim in under a minute and move on.</p>
       </div>
       <div class="grid-item">
         <span class="grid-num">04</span>
-        <div class="h3">Tender &amp; Proposal Kit</div>
-        <p class="body">Branded proposal, quotation, invoice templates and a letterhead — so you respond to every opportunity quickly and look the part every time.</p>
+        <div class="h3">Proposal &amp; Tender Kit</div>
+        <p class="body">Every response — quotation, proposal, invoice — already branded and ready to go. You reply within the hour, not within the week.</p>
       </div>
       <div class="grid-item">
         <span class="grid-num">05</span>
-        <div class="h3">Project &amp; Work Portfolio</div>
-        <p class="body">A professionally organised showcase of your best work with photos, descriptions, and outcomes. The proof that turns interest into hired.</p>
+        <div class="h3">Project Portfolio</div>
+        <p class="body">Your best work, organised and presented properly. The proof that lets clients trust your experience before they ever ask for references.</p>
       </div>
       <div class="grid-item">
         <span class="grid-num">06</span>
-        <div class="h3">Konnekt Digital Business Card</div>
-        <p class="body">Share your business instantly — tap or link. Clients access your website, profile, WhatsApp, social media, and portfolio from one place. Included in every package.</p>
+        <div class="h3">Google Business Profile</div>
+        <p class="body">Show up when someone searches for what you do. The listing that quietly turns "never heard of them" into "let's call them."</p>
       </div>
       <div class="grid-item">
         <span class="grid-num">07</span>
-        <div class="h3">Google Business Profile</div>
-        <p class="body">Get found. A verified listing that shows your location, services, reviews, and contact details to anyone searching for what you offer.</p>
+        <div class="h3">Professional Business Email</div>
+        <p class="body">A branded address instead of a Gmail. One small detail clients notice in seconds — and quietly judge you by.</p>
       </div>
       <div class="grid-item">
         <span class="grid-num">08</span>
-        <div class="h3">Professional Business Email</div>
-        <p class="body">A branded address like info@yourcompany.com instead of a personal Gmail. A small change that makes a big first impression on every message you send.</p>
+        <div class="h3">Konnekt Digital Business Card</div>
+        <p class="body">Your entire business presence — profile, website, portfolio, contact — shared with a tap or a link, at any meeting, anywhere.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Who it's for ── -->
-<section>
+<!-- ── Before / After ── -->
+<section id="compare">
   <div class="container reveal">
-    <div class="label">02 — Who this is for</div>
-    <h2 class="h2">Built for every professional <em>who means business.</em></h2>
-    <p class="body" style="margin-top:16px; max-width:540px;">Whether you run a firm, a practice, or a one-person operation — the businesses that win are the ones that look ready before the conversation starts.</p>
-    <div class="problem-grid reveal-stagger">
-      <div class="problem-card">
-        <div class="problem-num">01</div>
-        <div class="h3">Contractors &amp; Engineers</div>
-        <p class="body">Submit tenders and BOQs with a company profile and capability statement that makes evaluators take you seriously.</p>
+    <div class="label">03 — The shift</div>
+    <h2 class="h2">From scrambling <em>to ready.</em></h2>
+    <div class="compare-grid reveal-stagger">
+      <div class="compare-card">
+        <div class="compare-label">Before</div>
+        <ul class="compare-list">
+          <li>Scrambling for documents</li>
+          <li>Sending from a Gmail address</li>
+          <li>No website to point to</li>
+          <li>No company profile on hand</li>
+          <li>Missing opportunities quietly</li>
+          <li>Looking smaller than you are</li>
+        </ul>
       </div>
-      <div class="problem-card">
-        <div class="problem-num">02</div>
-        <div class="h3">Lawyers &amp; Consultants</div>
-        <p class="body">Walk into client meetings with a polished firm profile, professional email, and a website that commands respect.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-num">03</div>
-        <div class="h3">Medical &amp; Health Professionals</div>
-        <p class="body">Build patient trust before the first appointment. A Google profile, branded presence, and digital card that positions you as the clear choice.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-num">04</div>
-        <div class="h3">Real Estate &amp; Finance</div>
-        <p class="body">A credibility package that lets high-value clients find you, vet you, and trust you — before you even meet.</p>
+      <div class="compare-card after">
+        <div class="compare-label">After</div>
+        <ul class="compare-list">
+          <li>Everything ready in one place</li>
+          <li>A professional, branded presence</li>
+          <li>Documents prepared before they're asked for</li>
+          <li>Clients trust you faster</li>
+          <li>Responses go out in hours, not days</li>
+          <li>First impressions that match your work</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Problem ── -->
-<section>
+<!-- ── Who this is for ── -->
+<section id="who">
   <div class="container reveal">
-    <div class="label">03 — The problem</div>
-    <h2 class="h2">Good work alone <em>isn't enough anymore.</em></h2>
-    <div class="problem-grid reveal-stagger">
-      <div class="problem-card">
-        <div class="problem-num">01</div>
-        <div class="h3">The midnight scramble</div>
-        <p class="body">A client asks for your company profile. You don't have one ready. You pull something together at 11pm and hope it doesn't cost you the deal.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-num">02</div>
-        <div class="h3">The credibility gap</div>
-        <p class="body">Someone less experienced than you wins the contract — because their documents looked sharper. You never find out why you lost.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-num">03</div>
-        <div class="h3">The invisible business</div>
-        <p class="body">You have real experience and real results — but nothing online that proves it. Clients Google you and find nothing. They move on.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-num">04</div>
-        <div class="h3">The personal email</div>
-        <p class="body">You send quotes and proposals from a Gmail address. The client sees it and quietly wonders how established you really are.</p>
-      </div>
+    <div class="label">04 — Who this is for</div>
+    <h2 class="h2">Built for businesses <em>that get asked for proof.</em></h2>
+    <p class="body" style="margin-top:16px; max-width:540px;">If clients, partners, or procurement officers ever ask you to prove who you are before they commit — this package is for you.</p>
+    <div class="audience-row">
+      <span class="audience-pill">Construction Companies</span>
+      <span class="audience-pill">Consultants</span>
+      <span class="audience-pill">Law Firms</span>
+      <span class="audience-pill">Medical Practices</span>
+      <span class="audience-pill">Architects</span>
+      <span class="audience-pill">Engineers</span>
+      <span class="audience-pill">Manufacturers</span>
+      <span class="audience-pill">Real Estate Firms</span>
+      <span class="audience-pill">Financial Professionals</span>
+      <span class="audience-pill">Small Businesses</span>
     </div>
   </div>
 </section>
 
-<!-- ── Cost ── -->
-<section>
+<!-- ── Cost of being unprepared ── -->
+<section id="cost">
   <div class="container reveal">
-    <div class="label">04 — The cost of waiting</div>
-    <h2 class="h2">Every unprepared moment, <em>someone else gets hired.</em></h2>
-    <p class="body" style="margin-top:16px; max-width:520px;">Clients make decisions in under three seconds based on what they can see. If your business isn't visible and credible the moment they look — they move on.</p>
+    <div class="label">05 — The cost of waiting</div>
+    <h2 class="h2">Being unprepared has a price. <em>You just don't see the invoice.</em></h2>
+    <p class="body" style="margin-top:16px; max-width:520px;">It rarely shows up as one big loss. It shows up quietly, again and again, in moments you never get to revisit.</p>
     <div class="cost-row reveal-stagger">
       <div class="cost-cell">
         <div class="cost-icon">
           <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         </div>
         <div class="cost-title">Lost contracts</div>
-        <p class="cost-desc">Opportunities you qualified for but couldn't present confidently</p>
+        <p class="cost-desc">Opportunities you were qualified for, lost to documents you didn't have ready</p>
+      </div>
+      <div class="cost-cell">
+        <div class="cost-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"/></svg>
+        </div>
+        <div class="cost-title">Lost trust</div>
+        <p class="cost-desc">A Gmail address, a missing website — small details that quietly cost you credibility</p>
       </div>
       <div class="cost-cell">
         <div class="cost-icon">
           <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         </div>
         <div class="cost-title">Lost referrals</div>
-        <p class="cost-desc">People who heard about you but couldn't find or verify you online</p>
-      </div>
-      <div class="cost-cell">
-        <div class="cost-icon">
-          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
-        </div>
-        <div class="cost-title">Lost trust</div>
-        <p class="cost-desc">Clients who saw your Gmail and quietly chose a competitor instead</p>
+        <p class="cost-desc">People who heard about you but couldn't find proof of who you are online</p>
       </div>
       <div class="cost-cell">
         <div class="cost-icon">
           <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
         <div class="cost-title">Lost time</div>
-        <p class="cost-desc">Late nights building documents you should have had ready already</p>
+        <p class="cost-desc">Hours spent assembling documents at the last minute, instead of doing the work you're good at</p>
+      </div>
+      <div class="cost-cell">
+        <div class="cost-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
+        </div>
+        <div class="cost-title">Lost confidence</div>
+        <p class="cost-desc">Walking into a pitch unsure if your paperwork matches the quality of your work</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Process ── -->
-<section>
+<!-- ── Portfolio ── -->
+<section id="work">
   <div class="container reveal">
-    <div class="label">05 — How we work</div>
-    <h2 class="h2">A simple process. <em>Fast delivery.</em></h2>
-    <div class="process-list reveal-stagger">
-      <div class="process-item">
-        <div class="process-week">Day 1–2</div>
-        <div>
-          <div class="h3">Discovery &amp; brief</div>
-          <p class="body">We learn your business — services, clients, goals, and existing assets. A quick call or WhatsApp chat is all it takes to kick things off.</p>
+    <div class="label">06 — What gets built</div>
+    <h2 class="h2">A look at what's <em>inside the package.</em></h2>
+    <p class="body" style="margin-top:16px; max-width:540px;">Real, branded deliverables — built around your business, not a template.</p>
+    <div class="portfolio-grid reveal-stagger">
+      <div class="portfolio-item">
+        <div class="portfolio-mockup">
+          <div class="mp-page">
+            <div class="mp-mark"></div>
+            <div class="mp-title"></div>
+            <div class="mp-rule"></div>
+            <div class="mp-lines"><span></span><span></span><span></span></div>
+          </div>
         </div>
+        <span class="portfolio-caption">Company Profiles</span>
       </div>
-      <div class="process-item">
-        <div class="process-week">Day 3–7</div>
-        <div>
-          <div class="h3">Design &amp; build</div>
-          <p class="body">We design your profile, website, and documents. You see polished work — not rough drafts. One clear review round.</p>
+      <div class="portfolio-item">
+        <div class="portfolio-mockup">
+          <div class="mw-window">
+            <div class="mw-bar"><span></span><span></span><span></span></div>
+            <div class="mw-body">
+              <div class="mw-nav"></div>
+              <div class="mw-headline"></div>
+              <div class="mw-sub"></div>
+              <div class="mw-btn"></div>
+            </div>
+          </div>
         </div>
+        <span class="portfolio-caption">Websites</span>
       </div>
-      <div class="process-item">
-        <div class="process-week">Day 8–10</div>
-        <div>
-          <div class="h3">Revisions &amp; approval</div>
-          <p class="body">Your feedback applied. We refine every detail until it's right. Most clients approve in the first round.</p>
+      <div class="portfolio-item">
+        <div class="portfolio-mockup">
+          <div class="mb-card">
+            <div class="mb-mono">Y</div>
+            <div class="mb-swatches"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span></div>
+            <div class="mb-type">Aa Type</div>
+          </div>
         </div>
+        <span class="portfolio-caption">Brand Identity</span>
       </div>
-      <div class="process-item">
-        <div class="process-week">Day 11–14</div>
-        <div>
-          <div class="h3">Delivery &amp; handover</div>
-          <p class="body">All files, logins, and your Konnekt card delivered with a full walkthrough. You're ready for the next opportunity — whatever it is.</p>
+      <div class="portfolio-item">
+        <div class="portfolio-mockup">
+          <div class="pr-stack">
+            <div class="pr-sheet back"></div>
+            <div class="pr-sheet front">
+              <div class="pr-head"></div>
+              <div class="pr-lines"><span></span><span></span><span></span><span></span></div>
+            </div>
+          </div>
         </div>
+        <span class="portfolio-caption">Printed Materials</span>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-mockup">
+          <div class="bc-card">
+            <div class="bc-row">
+              <span class="bc-name"></span>
+              <svg class="bc-nfc" viewBox="0 0 24 24"><path stroke-linecap="round" d="M2 12a10 10 0 0 1 10-10"/><path stroke-linecap="round" d="M6 12a6 6 0 0 1 6-6"/></svg>
+            </div>
+            <span class="bc-title"></span>
+          </div>
+        </div>
+        <span class="portfolio-caption">Business Cards</span>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-mockup">
+          <div class="pd-slide">
+            <div class="pd-title"></div>
+            <div class="pd-bullets"><span></span><span></span><span></span></div>
+            <div class="pd-chart"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+        <span class="portfolio-caption">Presentation Decks</span>
       </div>
     </div>
+    <p class="portfolio-note">Sample work shared on request during your first conversation with us.</p>
   </div>
 </section>
 
@@ -836,24 +985,24 @@
 <section id="packages">
   <div class="wide">
     <div class="container reveal">
-      <div class="label">06 — Packages</div>
-      <h2 class="h2">Your credibility package, <em>fully delivered.</em></h2>
-      <p class="body" style="margin-top:16px; max-width:520px;">Every package includes a Konnekt digital business card — so you can share your entire business presence instantly, anywhere.</p>
+      <div class="label">07 — Packages</div>
+      <h2 class="h2">Three ways to <em>get ready.</em></h2>
+      <p class="body" style="margin-top:16px; max-width:520px;">Every package includes a Konnekt Digital Business Card — so you can share your full readiness package instantly, anywhere.</p>
     </div>
 
     <div class="packages reveal-stagger" style="margin-top:40px;">
 
       <div class="package">
         <div class="pkg-name">Foundation</div>
-        <div class="pkg-price">&#8358;230,000 <span>one-time</span></div>
-        <p class="pkg-desc">The essentials. Get professional and ready fast.</p>
+        <div class="pkg-price">&#8358;280,000 <span>one-time</span></div>
+        <p class="pkg-desc">The essentials. Be ready to answer when someone asks.</p>
         <ul class="pkg-features">
-          <li>Company Profile (PDF, up to 12 pages)</li>
+          <li>Company Profile (PDF, up to 10 pages)</li>
+          <li>Capability Statement (1 page)</li>
           <li>Branded business email setup</li>
           <li>Google Business Profile setup</li>
-          <li>Basic on-page SEO</li>
           <li>2 revision rounds</li>
-          <li>Delivered in 7 days</li>
+          <li>Delivered in 10 days</li>
         </ul>
         <div class="pkg-konnekt">
           <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
@@ -862,21 +1011,20 @@
             Share your profile with a tap or a link
           </div>
         </div>
-        <a href="https://wa.me/9024545849" target="_blank" class="pkg-cta pkg-cta-outline">Chat to get started</a>
+        <a href="https://wa.me/9024545849?text=Hi%2C%20I%27m%20interested%20in%20the%20Foundation%20package." target="_blank" class="pkg-cta pkg-cta-outline">Chat to get started</a>
       </div>
 
       <div class="package featured">
         <div class="pkg-badge">Most popular</div>
-        <div class="pkg-name">Credibility</div>
-        <div class="pkg-price">&#8358;450,000 <span>one-time</span></div>
-        <p class="pkg-desc">Our complete package. For professionals ready to win bigger clients.</p>
+        <div class="pkg-name">Business Ready</div>
+        <div class="pkg-price">&#8358;520,000 <span>one-time</span></div>
+        <p class="pkg-desc">The complete package. For businesses ready to win bigger opportunities.</p>
         <ul class="pkg-features">
-          <li>Company Profile (PDF, up to 20 pages)</li>
-          <li>5-page business website</li>
-          <li>Capability Statement (2 pages)</li>
-          <li>Tender &amp; Proposal Kit (4 templates)</li>
-          <li>Branded email + Google Business Profile</li>
-          <li>Professional copywriting included</li>
+          <li>Everything in Foundation</li>
+          <li>5-page modern business website</li>
+          <li>Capability Statement (2 pages, tender-ready)</li>
+          <li>Proposal &amp; Tender Kit (4 templates)</li>
+          <li>Project Portfolio (up to 6 projects)</li>
           <li>3 revision rounds</li>
           <li>Delivered in 14 days</li>
         </ul>
@@ -884,24 +1032,24 @@
           <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
           <div>
             <strong>2 Konnekt Cards included</strong>
-            Share your full credibility package instantly
+            Share your full readiness package instantly
           </div>
         </div>
-        <a href="https://wa.me/9024545849" target="_blank" class="pkg-cta pkg-cta-filled">Chat to get started</a>
+        <a href="https://wa.me/9024545849?text=Hi%2C%20I%27m%20interested%20in%20the%20Business%20Ready%20package." target="_blank" class="pkg-cta pkg-cta-filled">Chat to get started</a>
       </div>
 
       <div class="package">
         <div class="pkg-name">Authority</div>
-        <div class="pkg-price">&#8358;780,000 <span>one-time</span></div>
+        <div class="pkg-price">&#8358;890,000 <span>one-time</span></div>
         <p class="pkg-desc">Full-send. For businesses going after corporate and government-level clients.</p>
         <ul class="pkg-features">
-          <li>Everything in Credibility</li>
-          <li>Project Portfolio (up to 10 projects)</li>
+          <li>Everything in Business Ready</li>
           <li>8-page website with portfolio gallery</li>
-          <li>Letterhead + compliment slip design</li>
+          <li>Project Portfolio (up to 12 projects)</li>
+          <li>Letterhead + branded document suite</li>
           <li>Social media templates (8 branded)</li>
           <li>Unlimited revisions (30-day window)</li>
-          <li>Priority delivery in 14 days</li>
+          <li>Priority delivery in 12 days</li>
         </ul>
         <div class="pkg-konnekt">
           <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
@@ -910,107 +1058,79 @@
             Your whole team, always ready to share
           </div>
         </div>
-        <a href="https://wa.me/9024545849" target="_blank" class="pkg-cta pkg-cta-outline">Chat to get started</a>
+        <a href="https://wa.me/9024545849?text=Hi%2C%20I%27m%20interested%20in%20the%20Authority%20package." target="_blank" class="pkg-cta pkg-cta-outline">Chat to get started</a>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ── Testimonials ── -->
-<section>
-  <div class="container reveal">
-    <div class="label">07 — Results</div>
-    <h2 class="h2">Professionals who finally <em>look the part.</em></h2>
-    <span class="rating"><span class="stars">★★★★★</span> &nbsp;4.9 / 5 &nbsp;·&nbsp; 38 reviews</span>
-    <div class="testimonial-grid reveal-stagger">
-      <div class="testimonial">
-        <p class="testimonial-quote">We submitted our first government tender within a week of getting our company profile. We won it. The documents made us look like the established firm we're becoming.</p>
-        <div class="testimonial-author">Emeka Okonkwo</div>
-        <div class="testimonial-role">Director · Apex Civil Works, Lagos</div>
-      </div>
-      <div class="testimonial">
-        <p class="testimonial-quote">As a consultant, I was sending proposals from Gmail. Now I have a proper website, branded email, and a Konnekt card I hand out at every meeting. Three retainer clients in two months.</p>
-        <div class="testimonial-author">Ngozi Eze</div>
-        <div class="testimonial-role">Founder · Strategy &amp; Co., Abuja</div>
-      </div>
-      <div class="testimonial">
-        <p class="testimonial-quote">My clinic now has a verified Google listing, a patient-facing website, and a profile I send to every referral. The digital card alone has been a conversation starter at every event.</p>
-        <div class="testimonial-author">Dr. Tunde Adebayo</div>
-        <div class="testimonial-role">Medical Director · Lumina Health, Port Harcourt</div>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- ── FAQ ── -->
-<section>
+<section id="faq">
   <div class="container reveal">
     <div class="label">08 — Questions, answered</div>
-    <h2 class="h2">Everything you need to know.</h2>
+    <h2 class="h2">Before you reach out.</h2>
     <div class="faq reveal-stagger">
       <details>
-        <summary class="faq-q">What is a Konnekt card?<span class="chevron">+</span></summary>
-        <p class="faq-a">A Konnekt card is a smart digital business card — a physical card or a link you share that instantly opens your full business presence: website, company profile, WhatsApp, social media, and contact details. No app needed. One tap or one link, and the person has everything about your business in their hands.</p>
+        <summary class="faq-q">Can I buy only a company profile?<span class="chevron">+</span></summary>
+        <p class="faq-a">Yes — individual items are available outside the full package. Chat with us on WhatsApp and we'll send a custom quote based on what you need right now.</p>
       </details>
       <details>
-        <summary class="faq-q">How do I get started?<span class="chevron">+</span></summary>
-        <p class="faq-a">Simply call +234 902 454 5849 or send a WhatsApp message and we'll respond within the hour. We'll ask a few quick questions to understand your business, confirm your package, and kick off within 2 business days.</p>
+        <summary class="faq-q">How long does delivery take?<span class="chevron">+</span></summary>
+        <p class="faq-a">Foundation ships in 10 days, Business Ready in 14, and Authority is prioritised at 12 days. Timelines begin once we have your business information and brief.</p>
       </details>
       <details>
-        <summary class="faq-q">Do I need to supply photos or content?<span class="chevron">+</span></summary>
-        <p class="faq-a">We guide you through exactly what we need. Most clients are surprised how little it takes — basic business information, a few photos if you have them, and a short brief. We handle the rest, including copywriting on the Credibility and Authority packages.</p>
+        <summary class="faq-q">Do you write the content?<span class="chevron">+</span></summary>
+        <p class="faq-a">Yes. Copywriting is included across every package — for your company profile, capability statement, and website. You answer a short brief; we turn it into polished, professional language.</p>
       </details>
       <details>
-        <summary class="faq-q">I don't have a logo or existing brand. Is that okay?<span class="chevron">+</span></summary>
-        <p class="faq-a">Absolutely. We can create a clean, professional logo and colour system for your business as part of the package. Just let us know when you reach out and we'll include it in your quote.</p>
+        <summary class="faq-q">Can you redesign my existing profile?<span class="chevron">+</span></summary>
+        <p class="faq-a">Absolutely. If you already have a company profile, website, or documents, we can rebuild and elevate them rather than starting from zero — most clients save time this way.</p>
       </details>
       <details>
-        <summary class="faq-q">What files do I receive?<span class="chevron">+</span></summary>
-        <p class="faq-a">You receive editable source files (Word, PowerPoint, Canva) alongside polished, print and send-ready PDFs. For websites, you get full admin access. Everything belongs to you — nothing is locked away.</p>
-      </details>
-      <details>
-        <summary class="faq-q">Can I buy just one item — like only the company profile?<span class="chevron">+</span></summary>
-        <p class="faq-a">Yes. Individual items are available. Chat with us on WhatsApp and we'll send a custom quote. The packages offer the best value when you take the full set, but standalone items are always an option.</p>
+        <summary class="faq-q">Can I upgrade later?<span class="chevron">+</span></summary>
+        <p class="faq-a">Yes. Many clients start with Foundation and move up to Business Ready or Authority as they grow. We simply add what's missing — nothing is rebuilt from scratch.</p>
       </details>
     </div>
   </div>
 </section>
 
-<!-- ── CTA ── -->
-<section id="contact" class="cta-section" style="border-top: 1px solid var(--border); background: var(--bg2);">
+<!-- ── Final CTA ── -->
+<section id="contact" class="cta-section" style="background: var(--bg2);">
   <div class="container reveal">
     <div class="label" style="justify-content:center;">Your next step</div>
-    <h2 class="display">If they can't see you,<br><em>they can't hire you.</em></h2>
-    <p class="body-lg">
-      Call or WhatsApp us today. We'll walk you through exactly what your business needs — even if you don't end up working with us. You'll leave with a clear picture.
-    </p>
-    <div class="cta-group">
-      <a href="tel:+2349024545849" class="btn-primary">Call +234 902 454 5849</a>
-      <a href="https://wa.me/9024545849" target="_blank" class="btn-wa">
+    <h2 class="display">
+      Next time someone asks,<br>
+      <em>"Can you send your company profile?"</em>
+    </h2>
+    <p class="body-lg" style="margin-top:20px;">You'll already have it.</p>
+    <div class="cta-group" style="margin-top:36px;">
+      <a href="https://wa.me/9024545849?text=Hi%2C%20I%27d%20like%20to%20get%20my%20business%20ready." target="_blank" class="btn-wa">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.554 4.099 1.523 5.822L.057 23.743a.5.5 0 0 0 .612.612l5.921-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 0 1-5.006-1.37l-.359-.214-3.717.921.937-3.618-.234-.372A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-        Chat on WhatsApp
+        Let's Get Your Business Ready
       </a>
     </div>
-    <div class="hero-badges" style="justify-content:center; margin-top:24px;">
+    <div class="hero-badges" style="justify-content:center; margin-top:28px;">
       <span class="badge">Response within 1 hour</span>
       <span class="badge">No pressure, no pitch</span>
-      <span class="badge">Limited spots each week</span>
+      <span class="badge">Everything you need, nothing extra</span>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ── Footer ── -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">Yesterday <span>Studio</span></div>
     <div>
-      <a href="#discover">What's included</a>
+      <a href="#offer">The offer</a>
       <a href="#packages">Packages</a>
-      <a href="tel:+2349024545849">+234 902 454 5849</a>
+      <a href="#faq">FAQ</a>
       <a href="https://wa.me/9024545849" target="_blank">WhatsApp</a>
     </div>
-    <div style="margin-top:14px;">&#169; 2025 Yesterday Studio. All rights reserved.</div>
+    <div style="margin-top:14px;">&#169; 2026 Yesterday Studio. All rights reserved.</div>
   </div>
 </footer>
 
